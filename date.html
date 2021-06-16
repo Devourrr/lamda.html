@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>date</title>
+</head>
+<body>
+
+<h2>JavaScript new Date()</h2>
+
+<p id="demo1"></p>
+
+<script>
+const d = new Date();
+document.getElementById("demo1").innerHTML = d;
+</script>
+
+<h2>시간 지정</h2>
+
+<p id="demo"></p>
+
+<script>
+const d1 = new Date(2018, 11, 24, 10, 33, 30, 0); //시간 지정
+document.getElementById("demo").innerHTML = d1;
+</script>
+
+</body>
+</html>

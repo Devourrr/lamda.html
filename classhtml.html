@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>js class</title>
+</head>
+<body>
+
+<h3>js의 class</h3>
+
+<p id="demo"></p>
+
+<script>
+class Car {
+	constructor(name,year) { //constructor함수 만듬
+		this.name = name;
+		this.year = year;
+	}
+	age() { //메서드 만들기
+		 let date = new Date();
+		 return date.getFullYear() - this.year;		
+	}
+}
+
+let myCar = new Car("Ford", 2014); //class Car의 객체를 만듬
+let yourCar = new Car("BMW",2019); //클래스를 이용하여 객체를 만듬
+document.getElementById("demo").innerHTML =
+	"My car is " + myCar.age() + " years old.";
+</script>
+</body>
+</html>

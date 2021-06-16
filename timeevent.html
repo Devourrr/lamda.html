@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time event</title>
+</head>
+<body>
+
+<h3>time out</h3>
+<button onclick="setTimeout(myFunction1, 3000);">time-out</button>
+<!-- setTimeout()는 1회만 실행 -->
+<script>
+function myFunction1() {
+  alert('Hello');
+}
+</script>
+
+<h3>setTimeout 중단</h3>
+<button onclick="myVar = setTimeout(myFunction2, 3000)">timeout실행</button>
+<button onclick="clearTimeout(myVar)">timeout중단</button>
+<script>
+function myFunction2() {
+  alert("Hello");
+}
+</script>
+
+<h3>setInterval(반복 실행)</h3>
+<p id="demo1"></p>
+
+<script>
+var myVar1 = setInterval(myTimer, 1000); //함수는 이름만 사용하든지 function() { }으로 익명 정의해서 사용
+
+function myTimer() {
+  var d = new Date(); //현재 시간 표시 객체
+  document.getElementById("demo1").innerHTML = d.toLocaleTimeString(); //시간을 지역시간 문자로 변환
+}
+</script>
+
+<p id="demo2"></p>
+
+<button onclick="clearInterval(myVar1)">Stop time</button>
+
+<script>
+var myVar1 = setInterval(myTimer1 ,1000);
+function myTimer1() {
+  var d = new Date();
+  document.getElementById("demo2").innerHTML = d.toLocaleTimeString();
+}
+</script>
+
+
+</body>
+</html>

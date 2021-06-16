@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>screen</title>
+</head>
+<body>
+
+<h3>screen객체</h3>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<script>
+document.getElementById("demo1").innerHTML = 
+"Screen width is " + screen.width;
+
+document.getElementById("demo2").innerHTML = 
+	"Screen height is " + screen.height;
+	
+document.getElementById("demo3").innerHTML = 
+	"Screen color depth is " + screen.colorDepth;  //스크린에서 사용하는 색표시 비트수
+
+document.getElementById("demo4").innerHTML =
+	"Screen Pixel Depth: " + screen.pixelDepth; //스크린에서 사용하는 색표시 비트수
+</script>
+
+</body>
+</html>

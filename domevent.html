@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dom event</title>
+</head>
+<body onload="checkCookies()">
+<!-- onload는 body에 적용하는 것이 일반 관례 -->
+<h2>JavaScript HTML Events</h2>
+<h2 onclick="this.innerHTML='Ooops!'">Click on this text!</h>
+<!-- this는 키워드로 이벤트가 일어나는 엘리먼트를 객체를 나타냄 -->
+<h2>js함수를 호출</h2>
+<h2 onclick="changeText(this)">함수호출을 위해 Click on this text !</h2>
+<script>
+function changeText(id) {
+	  id.innerHTML = "Ooops!";
+}
+</script>
+<h3>이벤트 핸들러 할당</h3>
+<button id="myBtn">Try it</button>
+
+<p id="demo1"></p>
+<script>
+document.getElementById("myBtn").onclick = displayDate;
+//myBtn겍체에 onclick이벤트 속성을 할당하고 값으로 실행할 함수 이름을 줌
+
+function displayDate() {
+  document.getElementById("demo1").innerHTML = Date();
+}
+</script>
+
+<h3>onload이벤트</h3>
+<p id="demo2"></p>
+<script>
+function checkCookies() {
+  var text = "";
+  if (navigator.cookieEnabled == true) {
+    text = "Cookies are enabled.";
+  } else {
+    text = "Cookies are not enabled.";
+  }
+  document.getElementById("demo2").innerHTML = text;
+}
+</script>
+
+<h3>onchange이벤트</h3>
+Enter your name: <input type="text" id="fname" name="fname" onchange="upperCase()" >
+<script>
+function upperCase() {
+  const x = document.getElementById("fname");
+  x.value = x.value.toUpperCase();
+  //input창에 입력된값을 대문자로 바꾸어 준다.
+}
+</script>
+
+<h3>listener를 이용한 이벤트 처리</h3>
+<button id="myBtn1">Try it</button><br/>
+<script>
+document.getElementById("myBtn1").addEventListener("click", myFunction1);
+
+function myFunction1() {
+  alert ("Hello World!");
+}
+</script>
+<h3>하나의 이벤트로 여러 함수를 호출</h3>
+<button id="myBtn2">Try it</button>
+
+<script>
+var x = document.getElementById("myBtn2");
+x.addEventListener("click", myFunction2); //하나의 엘리먼트 클릭이벤트시 두개의 함수를 호출
+x.addEventListener("click", someOtherFunction2);
+
+function myFunction2() {
+  alert ("Hello World!");
+}
+
+function someOtherFunction2() {
+  alert ("This function was also executed!");
+}
+</script>
+
+<h3>하나의 엘리먼트에 여러가지 이벤트를 할당</h3>
+<button id="myBtn3">Try it</button>
+
+<p id="demo3"></p>
+<script>
+var x = document.getElementById("myBtn3");
+x.addEventListener("mouseover", myFunction3);
+x.addEventListener("click", mySecondFunction3);
+x.addEventListener("mouseout", myThirdFunction3);
+
+function myFunction3() {
+  document.getElementById("demo3").innerHTML += "Moused over!<br>";
+}
+
+function mySecondFunction3() {
+  document.getElementById("demo3").innerHTML += "Clicked!<br>";
+}
+
+function myThirdFunction3() {
+  document.getElementById("demo3").innerHTML += "Moused out!<br>";
+}
+</script>
+
+<h3>window 이벤트(resize)</h3>
+<p id="dem4"></p>
+
+<script>
+window.addEventListener("resize", function(){
+	//resize이벤트는 브라우져 크기 조정 이벤트로 window객체에 속하는 이벤트
+  document.getElementById("dem4").innerHTML = Math.random(); //0.0~ 0.9999999사이의 임의의 수
+});
+</script>
+</body>
+</html>

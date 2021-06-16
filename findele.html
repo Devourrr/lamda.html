@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>엘리먼트 find</title>
+<base href="https://www.w3schools.com/js/">
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative; /* 이동 기준을 위해 줌 */
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute; /*움직이기 위해 줌 */
+  background-color: red;
+}
+</style>
+</head>
+<body>
+
+<h3>Finding HTML Elements by Tag Name.</h3>
+<p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+
+<p id="demo1"></p>
+
+<script>
+const element = document.getElementsByTagName("p");
+//getElementsByTagName으로 찾으면 복수개가 찾아지며 배녈형태로 리턴한다
+//즉 element변수는 배열이다.
+
+document.getElementById("demo1").innerHTML = 
+	'The text in first paragraph (index 0) is: ' + element[0].innerHTML;
+
+</script>
+
+<h3>Finding HTML Elements by Class Name.</h3>
+<p class="intro">Hello World!</p>
+<p class="intro">This example demonstrates the <b>getElementsByClassName</b> method.</p>
+<p id="demo2"></p>
+
+<script>
+const x = document.getElementsByClassName("intro");
+//배열로 찾은 객체를 반환
+document.getElementById("demo2").innerHTML = 
+'The first paragraph (index 0) with class="intro" is: ' + x[0].innerHTML;
+</script>
+
+<h3>Finding HTML Elements by Query Selector</h3>
+<p class="intro1">Hello World!.</p>
+<p class="intro1">This example demonstrates the <b>querySelectorAll</b> method.</p>
+
+<p id="demo3"></p>
+
+<script>
+const x1 = document.querySelectorAll("p.intro1");
+//배열형태로 반환
+document.getElementById("demo3").innerHTML = 
+'The first paragraph (index 0) with class="intro" is: ' + x1[0].innerHTML;
+</script>
+
+<h3>JavaScript HTML DOM attribute변경</h3>
+<img id="image" src="smiley.gif" width="160" height="120">
+<script>
+document.getElementById("image").src = "landscape.jpg";
+//html attribute는 js에서도 그대로 사용
+</script>
+
+<h3>Changing the HTML style:</h3>
+<p id="p1">Hello World!</p>
+<p id="p2">Hello World!</p>
+
+<script>
+document.getElementById("p2").style.color = "blue";
+document.getElementById("p2").style.fontFamily = "Arial";
+document.getElementById("p2").style.fontSize = "larger";
+</script>
+
+<h3>애니메이션</h3>
+<p><button onclick="myMove()">Click Me</button></p> 
+<div id ="container">
+	<div id ="animate"></div>
+</div>
+
+<script>
+function myMove() {
+  let id = null;
+  const elem = document.getElementById("animate");   
+  let pos = 0;  
+  id = setInterval(frame, 5); //5초간격으로 frame함수를 실행
+  function frame() { //함수내의 함수
+    if (pos == 350) {
+      clearInterval(id); //setInterval을 중단
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+}
+</script>
+</body>
+</html>

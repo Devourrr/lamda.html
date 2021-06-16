@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>node개념</title>
+</head>
+<body>
+
+<h3>node만들고 내용 추가</h3>
+
+<div id="div1">
+	<p id="p1">This is a paragraph.</p>
+	<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const para = document.createElement("p"); //태그 p엘리먼트 노드를 만들어 para에 대입
+const node = document.createTextNode("This is new."); //내용을 나타내는 노드를 만듬
+para.appendChild(node); //텍스트노드를 p노드의 마지막에 붙임 
+const element = document.getElementById("div1");
+element.appendChild(para); //para를 div의 마지막 자식으로 붙임
+</script>
+
+<h3>collection</h3>
+<p>Hello World!</p>
+
+<p>Hello Norway!</p>
+
+<p>Click the button to change the color of all p elements.</p>
+
+<button onclick="myFunction1()">Try it</button>
+
+<script>
+function myFunction1() {
+  const myCollection = document.getElementsByTagName("p");
+  //getElementsByTagName과 getElementsByClassName으로 구한 객체는 collection계열로 
+  //색인번호,name,id속성값으로 접근이 가능
+  for (let i = 0; i < myCollection.length; i++) {
+    myCollection[i].style.color = "red";
+  }
+}
+</script>
+</body>
+</html>

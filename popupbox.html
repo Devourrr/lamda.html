@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>popup 박스</title>
+</head>
+<body>
+
+<h3>alert박스(메세지 창)</h3>
+<button onclick="myFunction1()">alert</button>
+<script>
+function myFunction1() {
+  alert("I am an alert box!");
+}
+</script>
+
+<h3>confirm 박스(확인창)</h3>
+<button onclick="myFunction2()">confirm</button>
+<p id="demo1"></p>
+
+<script>
+function myFunction2() {
+  var txt;
+  if (confirm("Press a button!")) { //confirm("안내내용") ,ok버튼을 누르면 true,cancel은 false를 반환
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  document.getElementById("demo1").innerHTML = txt;
+}
+</script>
+
+<h3>prompt박스(입력창)</h3>
+<button onclick="myFunction3()">prompt</button>
+
+<p id="demo2"></p>
+<script>
+function myFunction3() {
+  var txt;
+  var person = prompt("Please enter your name:", "Harry Potter");
+  //person은 ok버튼시는 입력 값,cancel시는 null값을 가짐
+  if (person == null || person == "") {
+    txt = "User cancelled the prompt.";
+  } else {
+    txt = "Hello " + person + "! How are you today?";
+  }
+  document.getElementById("demo2").innerHTML = txt;
+}
+</script>
+
+</body>
+</html>

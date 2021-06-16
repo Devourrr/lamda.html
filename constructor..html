@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h2>JavaScript Object Constructors</h2>
+
+<p id="demo"></p>
+
+<script>
+// Person객체용 생성자
+function Person(first, last, age, eye) {
+  this.firstName = first;  //파라메터로 객체의 속성을 지정
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+// Create a Person object
+const myFather = new Person("John", "Doe", 50, "blue");  //Person형 myFather객체
+const myMother = new Person("Sally", "Rally", 48, "green");
+
+// Display age
+document.getElementById("demo").innerHTML =
+"My father is " + myFather.age + "."; 
+
+Person.prototype.name = function() {  //prototype을 이용하여 메서드 추가
+  return this.firstName + " " + this.lastName
+};
+
+Person.prototype.nationality = "English"; //prototype을 이용하여 속성 nationality를 추가
+</script>
+
+<p id="demo1"></p>
+
+<script>
+(function () { //릭명의 함수를 만들고 ()로 호출하면 자동 호출
+  document.getElementById("demo1").innerHTML = "Hello! I called myself";
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>location</title>
+</head>
+<body>
+
+<h3>location객체</h3>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+
+<script>
+document.getElementById("demo1").innerHTML = 
+"The full URL of this page is:<br>" + window.location.href; //현재 url
+
+document.getElementById("demo2").innerHTML =
+	"Page hostname is " + window.location.hostname; //현재 도메인 이름
+
+document.getElementById("demo3").innerHTML =
+	"Page path is " + window.location.pathname; //hostname이후 파일의 경로
+
+document.getElementById("demo4").innerHTML =
+	"Page protocol is " + window.location.protocol; //전송 방식 
+	
+document.getElementById("demo5").innerHTML =
+	"Port number is " + window.location.port;	//포트번호 기본 80번은 안보여줌
+</script>
+
+<p>assign()메서드 사용하기</p>
+<input type="button" value="Load new document" onclick="newDoc()">
+
+<script>
+function newDoc() {
+  window.location.assign("https://www.w3schools.com") //페이지 이동,_self로 창 보여줌
+}
+//location.href = "http://www.naver.com";  //페이지 이동
+</script>
+
+</body>
+</html>
